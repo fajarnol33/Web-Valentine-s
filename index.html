@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Love - Special Valentine</title>
+  
+  <!-- Google Fonts: Pacifico (cursive) & Poppins (sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" 
+    rel="stylesheet" 
+  />
+  
+  <style>
+    /******************************************************
+     * RESET & GLOBAL STYLE
+     ******************************************************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff5f9;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .hidden {
+      display: none;
+    }
+    
+    /******************************************************
+     * TOP BANNER
+     ******************************************************/
+    .top-banner {
+      width: 100%;
+      background-color: #ffe8ef;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.95rem;
+      color: #d10068;
+      font-weight: 600;
+      border-bottom: 2px solid #ffc0cb;
+    }
+    
+    /******************************************************
+     * HERO SECTION & BACKGROUND FLOATING ELEMEN
+     ******************************************************/
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffc8dd, #ffe3ec, #fff5f9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      overflow: hidden;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-content h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      color: #d10068;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(255, 192, 203, 0.5);
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .hero-button {
+      background-color: #ff5f96;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 95, 150, 0.4);
+    }
+    .hero-button:hover {
+      background-color: #e85786;
+      transform: translateY(-2px);
+    }
+    
+    /* Floating background container */
+    .floating-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    /* Floating item (quotes & emoji) */
+    .floating-item {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.5;
+      animation: floatUp 12s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 0.5; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-10vh); opacity: 0.5; }
+    }
+    
+    /******************************************************
+     * SECTION UNTUK ASCII ART
+     ******************************************************/
+    .ascii-art-section {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .ascii-art-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: #d10068;
+      margin-bottom: 20px;
+    }
+    .text-art {
+      font-family: monospace;
+      white-space: pre;
+      color: #d10068;
+      font-size: 12px;
+      line-height: 1.1;
+      margin: 40px auto;
+      max-width: 95%;
+      overflow-x: auto; /* agar bisa di-scroll bila terlalu lebar */
+      text-align: left;
+    }
+    
+    /******************************************************
+     * QUOTES GALLERY
+     ******************************************************/
+    .quotes-gallery {
+      padding: 60px 20px;
+      background: #fff;
+    }
+    .quotes-gallery h2 {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem;
+      color: #d10068;
+      margin-bottom: 40px;
+    }
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .quote-box {
+      background: #fffaf0;
+      border: 2px solid #ffd1dc;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .quote-box:hover {
+      transform: translateY(-5px);
+    }
+    .quote-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .quote-text {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .quote-author {
+      font-size: 0.9rem;
+      text-align: right;
+      font-weight: 600;
+      color: #555;
+    }
+    /* Cover untuk setiap kotak quotes */
+    .quote-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #d10068;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+    /* Efek hati ketika kotak quotes dibuka */
+    .heart-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      font-size: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      animation: heartPop 0.8s forwards;
+    }
+    @keyframes heartPop {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+      }
+    }
+    
+    /******************************************************
+     * TEXT PAINTING (LUKISAN KATA)
+     ******************************************************/
+    .text-painting {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #fff5f9, #ffe3ec);
+      text-align: center;
+    }
+    .text-painting h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem;
+      color: #d10068;
+      margin-bottom: 20px;
+    }
+    .painting {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      background: -webkit-linear-gradient(#ff5f96, #d10068);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 3px rgba(255, 182, 193, 0.7);
+      margin: 10px 0;
+    }
+    
+    /******************************************************
+     * MODAL KIRIM PESAN (WHATSAPP)
+     ******************************************************/
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fff;
+      width: 80%;
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: showModal 0.3s ease;
+    }
+    @keyframes showModal {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #eee;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .close-modal:hover {
+      background: #ccc;
+    }
+    .modal-content h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #d10068;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .modal-content p {
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    #messageInput {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      resize: none;
+      margin-bottom: 20px;
+    }
+    .send-btn {
+      background-color: #25d366;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .send-btn:hover {
+      background-color: #1ebc57;
+    }
+    
+    /******************************************************
+     * FOOTER
+     ******************************************************/
+    footer {
+      background: #ffe8ef;
+      text-align: center;
+      padding: 20px 0;
+      border-top: 2px solid #ffc0cb;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #333;
+      margin: 5px 0;
+    }
+    
+    /******************************************************
+     * RESPONSIVE
+     ******************************************************/
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.8rem; }
+      .modal-content { width: 90%; }
+    }
+    
+    /******************************************************
+     * CANVAS CONFETTI (FIREWORKS/EFFECT)
+     ******************************************************/
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1100;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    web design by fajar
+  </div>
+  
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Happy Valentine's Day</h1>
+      <p>Semoga setiap detik penuh keajaiban dan kasih sayang yang tak berujung.</p>
+      <div class="hero-buttons">
+        <button id="showQuotesBtn" class="hero-button">Lihat Quotes</button>
+        <button id="openMessageModalBtn" class="hero-button">Kirim Pesan</button>
+      </div>
+    </div>
+    
+    <!-- Floating background elemen: quotes & emoji cute -->
+    <div class="floating-container">
+      <div class="floating-item" style="left: 5%; font-size: 2rem; animation-delay: 0s;">💖</div>
+      <div class="floating-item" style="left: 25%; font-size: 1.8rem; animation-delay: 2s;">Always</div>
+      <div class="floating-item" style="left: 45%; font-size: 2rem; animation-delay: 4s;">😍</div>
+      <div class="floating-item" style="left: 65%; font-size: 1.8rem; animation-delay: 1s;">Forever</div>
+      <div class="floating-item" style="left: 85%; font-size: 2rem; animation-delay: 3s;">🌸</div>
+      <div class="floating-item" style="left: 15%; font-size: 1.8rem; animation-delay: 5s;">💐</div>
+      <div class="floating-item" style="left: 35%; font-size: 2rem; animation-delay: 3s;">😊</div>
+      <div class="floating-item" style="left: 55%; font-size: 1.8rem; animation-delay: 6s;">💕</div>
+    </div>
+  </header>
+  
+  <!-- ASCII ART #1: Bunga Mawar -->
+  <section class="ascii-art-section">
+    <h2 class="ascii-art-title">ASCII Art - Rose</h2>
+    <pre class="text-art">
+                ,,;''';,
+              ,;;:::::::;;,
+             ;::::::::::::::;,
+            ;::::::::::::::::::',
+           ;:::::::::::::::::::::;,
+           ;::::::::::::::::::::::;;
+           ;:::::::'`^``'`^``':::::;
+           ;:::::'              :::;
+           `;::::'     .-~~-.    :::;
+            `;::'     /      \    :::;
+             |::     |        |   :::|
+             |::   .-:        ;-. :::|
+             |:::  |  ;        :  :::|
+             |:::   '-:        ;- :::|
+             |:::::'   \      /  :::|
+             |::::::'   '-..-'   :::|
+             |:::::::             :::|
+             |:::::::             :::|
+             |:::::::   ROSE      :::|
+             |::::::::  ASCII ART :::|
+             |::::::::            :::|
+             `;:::::::.         .:::'
+              `;:::::::.       .:::'
+               `;::::::::....:::::'
+                `;:::::::::::::::' 
+                 `;:::::::::::::' 
+                  `;::::::::::;' 
+                   `;::::::::;' 
+                    `;::::::;' 
+                     `;::::;' 
+                      `;::;' 
+                       `;;' 
+                        ` 
+    </pre>
+  </section>
+
+  <!-- QUOTES GALLERY SECTION -->
+  <section class="quotes-gallery" id="quotesGallery">
+    <h2>Quotes Romantis</h2>
+    <div class="quotes-grid">
+      <!-- Quote Box 1 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">💘</div>
+        <div class="quote-text hidden">"Cinta adalah kekuatan yang mampu mengubah dunia."</div>
+        <div class="quote-author hidden">- Albert Einstein</div>
+      </div>
+      <!-- Quote Box 2 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">💕</div>
+        <div class="quote-text hidden">"Dalam setiap detik, cintaku padamu tumbuh semakin besar."</div>
+        <div class="quote-author hidden">- Mahatma Gandhi</div>
+      </div>
+      <!-- Quote Box 3 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">💖</div>
+        <div class="quote-text hidden">"Cinta adalah seni jiwa yang melukis keindahan di hidup."</div>
+        <div class="quote-author hidden">- Audrey Hepburn</div>
+      </div>
+      <!-- Quote Box 4 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">🌹</div>
+        <div class="quote-text hidden">"Hidup tanpa cinta adalah seperti taman tanpa bunga."</div>
+        <div class="quote-author hidden">- Rumi</div>
+      </div>
+      <!-- Quote Box 5 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">😊</div>
+        <div class="quote-text hidden">"Cinta yang sejati memberi keberanian untuk menjadi diri sendiri."</div>
+        <div class="quote-author hidden">- Maya Angelou</div>
+      </div>
+      <!-- Quote Box 6 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">💗</div>
+        <div class="quote-text hidden">"Setiap senyumanmu adalah puisi yang menghidupkan hari-hariku."</div>
+        <div class="quote-author hidden">- Pablo Neruda</div>
+      </div>
+      <!-- Quote Box 7 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">💞</div>
+        <div class="quote-text hidden">"Cinta itu sederhana, namun penuh keajaiban."</div>
+        <div class="quote-author hidden">- Leonardo da Vinci</div>
+      </div>
+      <!-- Quote Box 8 -->
+      <div class="quote-box">
+        <div class="quote-cover">Buka Ini</div>
+        <div class="quote-icon">🌟</div>
+        <div class="quote-text hidden">"Dalam cinta, kita menemukan alasan untuk bermimpi dan berharap."</div>
+        <div class="quote-author hidden">- Oprah Winfrey</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASCII ART #2: Siluet Pasangan -->
+  <section class="ascii-art-section">
+    <h2 class="ascii-art-title">ASCII Art - Couple</h2>
+    <pre class="text-art">
+              .-''''''-.
+           .'           `.
+         .'   .--.   .--.  `.
+        /    (    ) (    )   \
+       :      '--'   '--'     :
+       |  .--.             .--.|
+       | (    )           (    )
+       |  '--'   (L) (O)   '--' |
+       :       (V)   (E)       ;
+        \                    /
+         `.                .'
+           `.            .'
+             '-........-'
+    </pre>
+  </section>
+  
+  <!-- TEXT PAINTING (LUKISAN KATA) -->
+  <section class="text-painting">
+    <h2>Lukisan Kata</h2>
+    <p class="painting">Cinta adalah warna-warni jiwa yang melukis keabadian.</p>
+    <p class="painting">Setiap huruf adalah goresan, setiap rindu adalah kanvas.</p>
+  </section>
+
+  <!-- ASCII ART #3: Teddy Bear -->
+  <section class="ascii-art-section">
+    <h2 class="ascii-art-title">ASCII Art - Teddy Bear</h2>
+    <pre class="text-art">
+          .--.              .--.
+         ( (`\\.__________//`) )
+          '-.   ( *  * )   .-'
+            /'._.'     '._.'\
+           /                 \
+           |   /\       /\   |
+           |  /  \     /  \  |
+           | /    \   /    \ |
+           |/      \ /      \|
+           (        '        )
+            \   \_______/   /
+             '.           .'
+               '-.......-'
+    </pre>
+  </section>
+  
+  <!-- MODAL KIRIM PESAN (WHATSAPP) -->
+  <div class="modal-overlay" id="messageModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeMessageModal">&times;</span>
+      <h2>Kirim Pesan Spesial</h2>
+      <p>Ungkapkan perasaanmu melalui pesan di bawah ini:</p>
+      <textarea id="messageInput" placeholder="Tulis pesanmu di sini..." rows="4"></textarea>
+      <button id="sendMessageBtn" class="send-btn">Kirim Pesan</button>
+    </div>
+  </div>
+  
+  <!-- CANVAS UNTUK CONFETTI / FIREWORKS EFFECT -->
+  <canvas id="confettiCanvas"></canvas>
+  
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Modern Love. All rights reserved.</p>
+    <p>Made with ♥ by Fajar & Team</p>
+  </footer>
+  
+  <script>
+    /******************************************************
+     * MODAL KIRIM PESAN: BUKA & TUTUP
+     ******************************************************/
+    const messageModal = document.getElementById('messageModal');
+    const openMessageModalBtn = document.getElementById('openMessageModalBtn');
+    const closeMessageModalBtn = document.getElementById('closeMessageModal');
+    openMessageModalBtn.addEventListener('click', () => {
+      messageModal.classList.add('active');
+    });
+    closeMessageModalBtn.addEventListener('click', () => {
+      messageModal.classList.remove('active');
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === messageModal) {
+        messageModal.classList.remove('active');
+      }
+    });
+    
+    /******************************************************
+     * KIRIM PESAN VIA WHATSAPP & TRIGGER EFFECT CONFETTI
+     ******************************************************/
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    sendMessageBtn.addEventListener('click', () => {
+      const message = document.getElementById('messageInput').value.trim();
+      if (!message) {
+        alert("Silakan tulis pesan terlebih dahulu.");
+        return;
+      }
+      // Luncurkan efek confetti/fireworks
+      launchConfetti();
+      // Setelah sedikit delay agar efek terlihat, buka WhatsApp
+      setTimeout(() => {
+        const phoneNumber = "6288293157783"; // nomor valid dengan kode 62
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
+      }, 1000);
+    });
+    
+    /******************************************************
+     * KONFIGURASI CANVAS CONFETTI
+     ******************************************************/
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    
+    let confettiParticles = [];
+    function createConfetti() {
+      confettiParticles = [];
+      const numParticles = 150;
+      for (let i = 0; i < numParticles; i++) {
+        confettiParticles.push({
+          x: random(0, canvas.width),
+          y: random(0, canvas.height / 2),
+          r: random(2, 6),
+          d: random(10, 30),
+          color: 'hsl(' + random(0, 360) + ', 100%, 50%)',
+          tilt: random(-10, 10),
+          tiltAngleIncremental: random(0.05, 0.12),
+          tiltAngle: 0
+        });
+      }
+    }
+    
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiParticles.forEach(p => {
+        p.tiltAngle += p.tiltAngleIncremental;
+        p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+        p.x += Math.sin(p.d);
+        p.tilt = Math.sin(p.tiltAngle) * 15;
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+        ctx.stroke();
+      });
+    }
+    
+    let confettiAnimation;
+    function launchConfetti() {
+      createConfetti();
+      const duration = 3000; // 3 detik
+      const start = Date.now();
+      function animateConfetti() {
+        drawConfetti();
+        if (Date.now() - start < duration) {
+          confettiAnimation = requestAnimationFrame(animateConfetti);
+        } else {
+          cancelAnimationFrame(confettiAnimation);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      animateConfetti();
+    }
+    
+    /******************************************************
+     * OPSIONAL: RESIZE CANVAS SAAT WINDOW DIUBAH
+     ******************************************************/
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    
+    /******************************************************
+     * SCROLL KE BAGIAN QUOTES GALLERY
+     ******************************************************/
+    const showQuotesBtn = document.getElementById('showQuotesBtn');
+    showQuotesBtn.addEventListener('click', () => {
+      document.getElementById('quotesGallery').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    /******************************************************
+     * INTERAKSI UNTUK SETIAP KOTAK QUOTES
+     ******************************************************/
+    const quoteCovers = document.querySelectorAll('.quote-cover');
+    quoteCovers.forEach(cover => {
+      cover.addEventListener('click', function() {
+        // Tambahkan efek hati di dalam kotak
+        const parentBox = this.parentElement;
+        const heart = document.createElement('div');
+        heart.classList.add('heart-effect');
+        heart.innerHTML = '❤️';
+        parentBox.appendChild(heart);
+        // Hapus cover dengan transisi opacity
+        this.style.opacity = '0';
+        setTimeout(() => {
+          this.remove();
+          // Tampilkan teks dan author yang sebelumnya disembunyikan
+          parentBox.querySelector('.quote-text').classList.remove('hidden');
+          parentBox.querySelector('.quote-author').classList.remove('hidden');
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
